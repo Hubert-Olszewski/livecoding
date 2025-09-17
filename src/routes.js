@@ -16,7 +16,8 @@ router.get('/getHistoricalTrades/:symbol/:from/:to', async (req, res) => {
     }
 
     const response = await fetchData(`${BinanceURL}/historicalTrades`, {
-        symbol
+        symbol,
+        limit: 10
     });
 
     let dateFrom;
@@ -35,10 +36,20 @@ router.get('/getHistoricalTrades/:symbol/:from/:to', async (req, res) => {
         if (date => dateFrom && date <= dateTo) {
             return item;
         }
-    }).filter(val => !!val);
+    }).filter(val => val !== null);
 
+    const prices = data.map(item => parseFloat(item.price));
+
+    const max = Math.max(...prices);
+    const min = Math.min(...prices);
+
+    const avg = data.reduce((sum, item) => {
+        return sum + Number(item.price) / data.length;
+    }, 0);
+
+    
     res.json({
-        data
+        avg, max, min
     })
 });
 

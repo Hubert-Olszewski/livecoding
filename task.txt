@@ -37,6 +37,7 @@ Implement the following functionality:
 Fetch historical market data for a specific cryptocurrency symbol and time range using the API. 
 Analyze the fetched data to identify changes in cryptocurrency prices, such as increases or decreases, over the specified time period. 
 Display the analyzed data in a formatted manner. 
+
 Write test cases to validate the following scenarios:                                                         
 Successful retrieval of historical market data from the Binance API. 
 Proper analysis and identification of cryptocurrency price changes. 

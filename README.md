@@ -2,8 +2,6 @@
 
 # Build and Run
 
-Before run local server please set up your mongo database
-
 ```bash
 nvm use
 npm i
